@@ -21,7 +21,7 @@ export default function Sponsors() {
                             </svg> */}
                         </div>
                         <h1 className={styles.pageTitle}>Our Sponsors</h1>
-                        <p className={styles.subtitle}>Terima kasih kepada para mitra yang mendukung perjalanan kami</p>
+                        <p className={styles.subtitle}>Thank you to our partners who support our journey</p>
 
                         <div className={styles.statsBar}>
                             <div className={styles.statItem}>
@@ -113,10 +113,10 @@ export default function Sponsors() {
                                     <polyline points="17 11 19 13 23 9" />
                                 </svg>
                             </div>
-                            <h2 className={styles.ctaTitle}>Ingin Menjadi Sponsor Kami?</h2>
+                            <h2 className={styles.ctaTitle}>Want to Become Our Sponsor?</h2>
                             <p className={styles.ctaText}>
-                                Bergabunglah dengan komunitas kami dan tingkatkan visibility brand Anda.
-                                Dapatkan eksposur maksimal di jersey, media sosial, dan event kami.
+                                Join our community and increase your brand visibility.
+                                Get maximum exposure on jerseys, social media, and our events.
                             </p>
                             <div className={styles.benefits}>
                                 <div className={styles.benefit}>
@@ -124,28 +124,28 @@ export default function Sponsors() {
                                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                         <polyline points="22 4 12 14.01 9 11.01" />
                                     </svg>
-                                    <span>Logo di Jersey Tim</span>
+                                    <span>Logo on Team Jersey</span>
                                 </div>
                                 <div className={styles.benefit}>
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                         <polyline points="22 4 12 14.01 9 11.01" />
                                     </svg>
-                                    <span>Promosi di Media Sosial</span>
+                                    <span>Social Media Promotion</span>
                                 </div>
                                 <div className={styles.benefit}>
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                         <polyline points="22 4 12 14.01 9 11.01" />
                                     </svg>
-                                    <span>Banner di Setiap Pertandingan</span>
+                                    <span>Banner at Every Match</span>
                                 </div>
                                 <div className={styles.benefit}>
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                         <polyline points="22 4 12 14.01 9 11.01" />
                                     </svg>
-                                    <span>Exposure di Event Resmi</span>
+                                    <span>Exposure at Official Events</span>
                                 </div>
                             </div>
                             <button className={styles.ctaButton}>

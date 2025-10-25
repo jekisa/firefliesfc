@@ -161,7 +161,7 @@ export default function About() {
                                     <line x1="7" y1="7" x2="7.01" y2="7" />
                                 </svg>
                             </div>
-                            <h2 className={styles.sectionTitle}>Jersey Kami</h2>
+                            <h2 className={styles.sectionTitle}>Our Jerseys</h2>
                         </div>
                         <div className={styles.jerseyGrid}>
                             <div className={styles.jerseyCard}>
@@ -171,7 +171,7 @@ export default function About() {
                                 </div>
                                 <div className={styles.jerseyContent}>
                                     <h3 className={styles.jerseyTitle}>Home Jersey</h3>
-                                    <p className={styles.jerseyDescription}>Merah Api - Semangat Juang</p>
+                                    <p className={styles.jerseyDescription}>Fiery Red - Fighting Spirit</p>
                                 </div>
                             </div>
                             <div className={styles.jerseyCard}>
@@ -181,7 +181,7 @@ export default function About() {
                                 </div>
                                 <div className={styles.jerseyContent}>
                                     <h3 className={styles.jerseyTitle}>Away Jersey</h3>
-                                    <p className={styles.jerseyDescription}>Putih Elegan - Kesederhanaan</p>
+                                    <p className={styles.jerseyDescription}>Elegant White - Simplicity</p>
                                 </div>
                             </div>
                             <div className={styles.jerseyCard}>
@@ -191,7 +191,7 @@ export default function About() {
                                 </div>
                                 <div className={styles.jerseyContent}>
                                     <h3 className={styles.jerseyTitle}>Third Jersey</h3>
-                                    <p className={styles.jerseyDescription}>Biru Kuat - Kesetiaan</p>
+                                    <p className={styles.jerseyDescription}>Strong Blue - Loyalty</p>
                                 </div>
                             </div>
                         </div>

@@ -11,8 +11,8 @@
   align-items: center;
   padding: 0;
   color: white;
-  margin-top: -120px;
-  padding-top: 120px;
+  margin-top: 0;
+  padding-top: 140px;
   overflow: hidden;
 }
 
@@ -155,21 +155,93 @@
 
 .matchCardHeader {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, var(--primary-blue), var(--primary-orange), var(--primary-red)) border-box;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-orange) 50%, var(--primary-red) 100%) 1;
+  position: relative;
+}
+
+.matchCardHeader::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-blue) 0%, transparent 100%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(200%);
+  }
 }
 
 .matchBadge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-dark) 100%);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.1rem;
   border-radius: 50px;
   font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(0, 61, 165, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 61, 165, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.matchBadge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: badgeShine 2s ease-in-out infinite;
+}
+
+@keyframes badgeShine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.matchBadge::after {
+  content: '⚡';
+  font-size: 0.9rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
 }
 
 .matchVersus {
@@ -233,17 +305,17 @@
   text-align: center;
 }
 
-.matchVenue {
+.matchCaraousellVenue {
+  color: var(--primary-grey);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--gray);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
 
-.matchVenue::before {
+.matchCaraousellVenue::before {
   content: '';
   width: 16px;
   height: 16px;
@@ -268,6 +340,24 @@
 }
 
 .partnersTitle {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 0.75rem;
+  letter-spacing: -1px;
+}
+
+.exploreTitle {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 0.75rem;
+  letter-spacing: -1px;
+}
+
+.exploreSubTitle {
   font-size: 2.5rem;
   font-weight: 900;
   color: var(--primary-blue);
@@ -565,132 +655,242 @@
 /* Features Section */
 .featuresSection {
   padding: 6rem 0;
-  background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
+  background:
+    linear-gradient(135deg, rgba(0, 61, 165, 0.95) 0%, rgba(0, 43, 117, 0.97) 100%),
+    url('/images/gallery/players-card.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   position: relative;
+  color: white;
+}
+
+.featuresSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(246, 166, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(165, 0, 52, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.featuresSection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .featuresContainer {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .sectionHeader {
   text-align: center;
   margin-bottom: 4rem;
   animation: fadeInUp 0.8s ease-out;
+  position: relative;
+  z-index: 2;
 }
 
 .sectionIcon {
   width: 64px;
   height: 64px;
   margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-dark) 100%);
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: 0 10px 30px rgba(0, 61, 165, 0.3);
+  color: var(--dark-gray);
+  box-shadow: 0 10px 30px rgba(246, 166, 0, 0.5);
   animation: float 3s ease-in-out infinite;
 }
 
 .sectionTitle {
   font-size: 3rem;
   font-weight: 900;
-  color: var(--primary-blue);
+  color: white;
   margin-bottom: 1rem;
   letter-spacing: -1px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .sectionSubtitle {
   font-size: 1.2rem;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
 }
 
 .featuresGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .featureCard {
-  background: white;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
   border-radius: 24px;
-  padding: 2.5rem;
-  border: 2px solid transparent;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-  transition: all 0.4s ease;
-  position: relative;
   overflow: hidden;
-}
-
-.featureCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-orange) 50%, var(--primary-yellow) 100%);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.featureCard:hover::before {
-  transform: scaleX(1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .featureCard:hover {
   transform: translateY(-10px);
-  border-color: rgba(0, 61, 165, 0.2);
-  box-shadow: 0 20px 60px rgba(0, 61, 165, 0.15);
+  border-color: rgba(246, 166, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(246, 166, 0, 0.25);
+}
+
+.featureCardImage {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 61, 165, 0.3) 0%, rgba(246, 166, 0, 0.3) 100%);
+}
+
+.featureCardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.featureCard:hover .featureCardImage img {
+  transform: scale(1.1);
+}
+
+.featureCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 61, 165, 0.85) 0%, rgba(246, 166, 0, 0.85) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.featureCard:hover .featureCardOverlay {
+  opacity: 1;
+}
+
+.featureCardContent {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .featureIcon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, rgba(0, 61, 165, 0.1) 0%, rgba(246, 166, 0, 0.1) 100%);
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-blue);
+  color: var(--dark-gray);
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(246, 166, 0, 0.4);
 }
 
 .featureCard:hover .featureIcon {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
-  color: white;
   transform: scale(1.1) rotate(5deg);
 }
 
 .featureTitle {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--dark-gray);
-  margin-bottom: 1rem;
+  color: white;
+  margin-bottom: 0.75rem;
   letter-spacing: -0.5px;
 }
 
 .featureDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.featureCardButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-yellow);
+  font-weight: 700;
   font-size: 1rem;
-  line-height: 1.7;
-  color: var(--gray);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover .featureCardButton {
+  color: var(--primary-orange);
+  gap: 0.75rem;
+}
+
+.featureCard:hover .featureCardButton svg {
+  transform: translateX(3px);
 }
 
 /* Explore Section */
 .exploreSection {
   padding: 6rem 0;
-  background: white;
+  background:
+    linear-gradient(135deg, rgba(248, 249, 250, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%),
+    url('/images/gallery/matches-card.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.exploreSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(0, 61, 165, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(246, 166, 0, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .exploreContainer {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .exploreGrid {
@@ -798,8 +998,13 @@
 
 /* Next Match Section */
 .nextMatchSection {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-dark) 100%);
+  padding: 8rem 0;
+  background:
+    linear-gradient(135deg, rgba(0, 61, 165, 0.95) 0%, rgba(0, 43, 117, 0.98) 100%),
+    url('/images/gallery/players-card.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   position: relative;
   overflow: hidden;
   color: white;
@@ -812,10 +1017,45 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(165, 0, 52, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 50%, rgba(165, 0, 52, 0.1) 0%, transparent 50%);
+  background:
+    radial-gradient(circle at 20% 50%, rgba(246, 166, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(165, 0, 52, 0.2) 0%, transparent 50%);
   pointer-events: none;
   z-index: 1;
+  animation: gradientShift 15s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.nextMatchSection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+  background-size: 50px 50px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+  animation: patternMove 30s linear infinite;
+}
+
+@keyframes patternMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
 }
 
 .nextMatchContainer {
@@ -827,18 +1067,45 @@
 }
 
 .matchupCard {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
-  backdrop-filter: blur(25px);
-  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+  backdrop-filter: blur(30px);
+  border-radius: 32px;
   padding: 4rem 3rem;
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s ease;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.matchupCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(246, 166, 0, 0.1) 0%, transparent 70%);
+  animation: rotateGlow 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .matchupCard:hover {
-  border-color: rgba(246, 166, 0, 0.4);
-  box-shadow: 0 35px 90px rgba(246, 166, 0, 0.2);
+  border-color: rgba(246, 166, 0, 0.6);
+  box-shadow: 0 35px 90px rgba(246, 166, 0, 0.3),
+              0 0 60px rgba(246, 166, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
 }
 
 .teamsMatchup {
@@ -858,20 +1125,43 @@
 }
 
 .teamLogoWrapper {
-  width: 140px;
-  height: 140px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
   border-radius: 50%;
   padding: 2rem;
-  border: 3px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s ease;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4),
+              inset 0 2px 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.teamLogoWrapper::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-yellow));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.teamLogoWrapper:hover::before {
+  opacity: 1;
 }
 
 .teamLogoWrapper:hover {
-  transform: scale(1.08);
-  border-color: var(--primary-orange);
-  box-shadow: 0 20px 60px rgba(246, 166, 0, 0.4);
+  transform: scale(1.1) translateY(-5px);
+  border-color: rgba(246, 166, 0, 0.6);
+  box-shadow: 0 25px 70px rgba(246, 166, 0, 0.5),
+              0 0 40px rgba(246, 166, 0, 0.3),
+              inset 0 2px 10px rgba(255, 255, 255, 0.2);
 }
 
 .teamLogo {
@@ -879,47 +1169,81 @@
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.teamLogoWrapper:hover .teamLogo {
+  filter: drop-shadow(0 8px 20px rgba(246, 166, 0, 0.6));
 }
 
 .teamName {
-  font-size: 1.75rem;
+  font-size: 1.85rem;
   font-weight: 900;
   color: white;
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .teamDescription {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
   max-width: 300px;
 }
 
 .vsCircle {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: var(--dark-gray);
-  box-shadow: 0 15px 50px rgba(246, 166, 0, 0.5);
-  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 20px 60px rgba(246, 166, 0, 0.6),
+              inset 0 2px 10px rgba(255, 255, 255, 0.3);
+  animation: pulseVS 3s ease-in-out infinite;
+  position: relative;
+  border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
-@keyframes pulse {
+.vsCircle::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-orange);
+  opacity: 0.5;
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes pulseVS {
   0%, 100% {
-    box-shadow: 0 15px 50px rgba(246, 166, 0, 0.5);
+    box-shadow: 0 20px 60px rgba(246, 166, 0, 0.6),
+                inset 0 2px 10px rgba(255, 255, 255, 0.3);
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 15px 60px rgba(246, 166, 0, 0.7);
-    transform: scale(1.05);
+    box-shadow: 0 25px 80px rgba(246, 166, 0, 0.8),
+                0 0 50px rgba(246, 166, 0, 0.5),
+                inset 0 2px 10px rgba(255, 255, 255, 0.4);
+    transform: scale(1.08);
+  }
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
   }
 }
 
@@ -981,13 +1305,37 @@
   font-weight: 900;
   color: white;
   line-height: 1;
-  background: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
   padding: 1.5rem 2rem;
-  border-radius: 16px;
+  border-radius: 20px;
   min-width: 120px;
-  border: 2px solid rgba(246, 166, 0, 0.4);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(246, 166, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+              inset 0 2px 10px rgba(255, 255, 255, 0.1),
+              0 0 30px rgba(246, 166, 0, 0.3);
   font-family: 'Courier New', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdownValue::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(246, 166, 0, 0.3), transparent);
+  animation: countdownShine 3s ease-in-out infinite;
+}
+
+@keyframes countdownShine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 .countdownLabel {
@@ -1019,28 +1367,60 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1.25rem 2.5rem;
+  padding: 1.4rem 3rem;
   background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
   color: var(--dark-gray);
   text-decoration: none;
   border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 700;
-  box-shadow: 0 10px 30px rgba(246, 166, 0, 0.4);
-  transition: all 0.4s ease;
+  font-size: 1.1rem;
+  font-weight: 800;
+  box-shadow: 0 12px 35px rgba(246, 166, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.viewLocationButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.viewLocationButton:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .viewLocationButton:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(246, 166, 0, 0.6);
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 20px 50px rgba(246, 166, 0, 0.7),
+              0 0 40px rgba(246, 166, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .viewLocationButton svg {
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.viewLocationButton span {
+  position: relative;
+  z-index: 1;
 }
 
 .viewLocationButton:hover svg {
-  transform: scale(1.2);
+  transform: scale(1.3) rotate(15deg);
 }
 
 /* Responsive Design */
@@ -1056,12 +1436,56 @@
   .exploreGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .matchupCard {
+    padding: 3rem 2rem;
+  }
+
+  .teamsMatchup {
+    gap: 2.5rem;
+  }
+
+  .teamLogoWrapper {
+    width: 130px;
+    height: 130px;
+    padding: 1.5rem;
+  }
+
+  .teamName {
+    font-size: 1.6rem;
+  }
+
+  .teamDescription {
+    font-size: 0.95rem;
+  }
+
+  .vsCircle {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+
+  .countdownValue {
+    font-size: 3.5rem;
+    padding: 1.25rem 1.75rem;
+    min-width: 110px;
+  }
+
+  .matchDetails {
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .viewLocationButton {
+    padding: 1.2rem 2.5rem;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
   .hero {
-    margin-top: -80px;
-    padding-top: 80px;
+    margin-top: 0;
+    padding-top: 100px;
   }
 
   .heroContainer {
@@ -1119,24 +1543,94 @@
     grid-template-columns: 1fr;
   }
 
+  .matchupCard {
+    padding: 2.5rem 1.5rem;
+    border-radius: 24px;
+  }
+
   .teamsMatchup {
     grid-template-columns: 1fr;
     gap: 2rem;
+    justify-items: center;
+  }
+
+  .vsCircle {
+    width: 90px;
+    height: 90px;
+    font-size: 1.75rem;
+    margin: 1rem auto;
+    order: 1;
+    justify-self: center;
+  }
+
+  .teamSection:first-child {
+    order: 0;
+  }
+
+  .teamSection:last-child {
+    order: 2;
+  }
+
+  .teamLogoWrapper {
+    width: 110px;
+    height: 110px;
+    padding: 1.25rem;
+  }
+
+  .teamName {
+    font-size: 1.5rem;
+  }
+
+  .teamDescription {
+    font-size: 0.9rem;
+    max-width: 100%;
   }
 
   .matchDetails {
     flex-direction: column;
     gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .matchDetailItem {
+    font-size: 0.95rem;
   }
 
   .countdown {
     gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .countdownValue {
     font-size: 3rem;
     padding: 1rem 1.5rem;
     min-width: 90px;
+  }
+
+  .countdownLabel {
+    font-size: 0.85rem;
+  }
+
+  .countdownSeparator {
+    font-size: 2.5rem;
+  }
+
+  .countdownTitle {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .viewLocationButton {
+    padding: 1.1rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .nextMatchSection {
+    padding: 5rem 0;
+  }
+
+  .nextMatchContainer {
+    padding: 0 1.5rem;
   }
 }
 
@@ -1162,13 +1656,260 @@
     justify-content: center;
   }
 
+  .matchupCard {
+    padding: 2rem 1rem;
+    border-radius: 20px;
+  }
+
+  .teamsMatchup {
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .teamLogoWrapper {
+    width: 90px;
+    height: 90px;
+    padding: 1rem;
+    border-width: 2px;
+  }
+
+  .teamName {
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+  }
+
+  .teamDescription {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .vsCircle {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+    border-width: 3px;
+    margin: 0.75rem auto;
+    justify-self: center;
+  }
+
+  .vsCircle::before {
+    inset: -6px;
+    border-width: 1.5px;
+  }
+
+  .matchDetails {
+    gap: 1rem;
+    padding: 1rem 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .matchDetailItem {
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .matchDetailItem svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .countdownTitle {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: 1.5px;
+  }
+
+  .countdown {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
   .countdownValue {
     font-size: 2.5rem;
     padding: 0.75rem 1rem;
     min-width: 70px;
+    border-width: 1.5px;
+  }
+
+  .countdownLabel {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
   }
 
   .countdownSeparator {
     display: none;
+  }
+
+  .viewLocationButton {
+    padding: 1rem 1.75rem;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+    border-radius: 40px;
+  }
+
+  .nextMatchSection {
+    padding: 4rem 0;
+  }
+
+  .nextMatchContainer {
+    padding: 0 1rem;
+  }
+}
+
+/* WhatsApp Chat Button */
+.whatsappButton {
+  position: fixed; /* hanya ini yang digunakan */
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4),
+              0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1500;
+  overflow: hidden;
+}
+
+
+.whatsappButton:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(37, 211, 102, 0.6),
+              0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.whatsappButton:active {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.whatsappIcon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.whatsappButton:hover .whatsappIcon {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(15deg) scale(1.1);
+}
+
+.whatsappContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.whatsappLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.whatsappText {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.whatsappPulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.3);
+  animation: whatsappPulseAnimation 2.5s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes whatsappPulseAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* Responsive WhatsApp Button */
+@media (max-width: 768px) {
+  .whatsappButton {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .whatsappIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsappIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .whatsappLabel {
+    font-size: 0.7rem;
+  }
+
+  .whatsappText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsappButton {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .whatsappIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .whatsappIcon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .whatsappContent {
+    gap: 0.15rem;
+  }
+
+  .whatsappLabel {
+    font-size: 0.65rem;
+  }
+
+  .whatsappText {
+    font-size: 0.9rem;
   }
 }

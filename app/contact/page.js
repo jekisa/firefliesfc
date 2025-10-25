@@ -15,7 +15,7 @@ export default function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
+        alert('Thank you! Your message has been sent. We will contact you shortly.');
         setFormData({ name: '', email: '', message: '' });
     };
 
@@ -35,8 +35,8 @@ export default function Contact() {
                     <div className={styles.heroContent}>
                         <div className={styles.heroIcon}>
                         </div>
-                        <h1 className={styles.pageTitle}>Hubungi Kami</h1>
-                        <p className={styles.subtitle}>Ada pertanyaan? Ingin bergabung? Kami siap membantu Anda!</p>
+                        <h1 className={styles.pageTitle}>Contact Us</h1>
+                        <p className={styles.subtitle}>Got questions? Want to join? We're here to help!</p>
 
                         <div className={styles.statsBar}>
                             <div className={styles.statItem}>
@@ -83,7 +83,7 @@ export default function Contact() {
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                     <polyline points="22,6 12,13 2,6" />
                                 </svg>
-                                <h2 className={styles.sectionTitle}>Kirim Pesan</h2>
+                                <h2 className={styles.sectionTitle}>Send Message</h2>
                             </div>
                             <form onSubmit={handleSubmit} className={styles.form}>
                                 <div className={styles.inputGroup}>
@@ -92,12 +92,12 @@ export default function Contact() {
                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                                             <circle cx="12" cy="7" r="4" />
                                         </svg>
-                                        <span>Nama Lengkap</span>
+                                        <span>Full Name</span>
                                     </label>
                                     <input
                                         type="text"
                                         name="name"
-                                        placeholder="Masukkan nama lengkap Anda"
+                                        placeholder="Enter your full name"
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
@@ -127,11 +127,11 @@ export default function Contact() {
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                                         </svg>
-                                        <span>Pesan</span>
+                                        <span>Message</span>
                                     </label>
                                     <textarea
                                         name="message"
-                                        placeholder="Tulis pesan Anda di sini..."
+                                        placeholder="Write your message here..."
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
@@ -144,7 +144,7 @@ export default function Contact() {
                                         <line x1="22" y1="2" x2="11" y2="13" />
                                         <polygon points="22 2 15 22 11 13 2 9 22 2" />
                                     </svg>
-                                    <span>Kirim Pesan</span>
+                                    <span>Send Message</span>
                                 </button>
                             </form>
                         </div>
@@ -156,7 +156,7 @@ export default function Contact() {
                                     <line x1="12" y1="16" x2="12" y2="12" />
                                     <line x1="12" y1="8" x2="12.01" y2="8" />
                                 </svg>
-                                <h2 className={styles.sectionTitle}>Info Kontak</h2>
+                                <h2 className={styles.sectionTitle}>Contact Info</h2>
                             </div>
 
                             <div className={styles.infoCard}>
@@ -167,8 +167,8 @@ export default function Contact() {
                                     </svg>
                                 </div>
                                 <div className={styles.infoContent}>
-                                    <h3>Lokasi Latihan</h3>
-                                    <p>Lapangan Senayan<br />Jakarta Pusat, DKI Jakarta</p>
+                                    <h3>Training Location</h3>
+                                    <p>Senayan Field<br />Central Jakarta, DKI Jakarta</p>
                                 </div>
                             </div>
 
@@ -192,7 +192,7 @@ export default function Contact() {
                                     </svg>
                                 </div>
                                 <div className={styles.infoContent}>
-                                    <h3>Telepon</h3>
+                                    <h3>Phone</h3>
                                     <p>+62 812-3456-7890</p>
                                 </div>
                             </div>
@@ -244,7 +244,7 @@ export default function Contact() {
                                 <line x1="8" y1="2" x2="8" y2="18" />
                                 <line x1="16" y1="6" x2="16" y2="22" />
                             </svg>
-                            <h2 className={styles.sectionTitle}>Lokasi Kami</h2>
+                            <h2 className={styles.sectionTitle}>Our Location</h2>
                         </div>
                         <div className={styles.map}
                             style={{ background: 'linear-gradient(135deg, rgba(0, 61, 165, 0.8) 0%, rgba(246, 166, 0, 0.8) 100%)' }}>
@@ -253,8 +253,8 @@ export default function Contact() {
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                     <circle cx="12" cy="10" r="3" />
                                 </svg>
-                                <p className={styles.mapTitle}>Lapangan Senayan</p>
-                                <p className={styles.mapSubtext}>Jakarta Pusat, DKI Jakarta</p>
+                                <p className={styles.mapTitle}>Senayan Field</p>
+                                <p className={styles.mapSubtext}>Central Jakarta, DKI Jakarta</p>
                                 <button className={styles.mapButton}>
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
