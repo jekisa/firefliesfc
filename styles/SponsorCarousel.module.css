@@ -1,0 +1,74 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.sponsorSlide {
+  min-width: 33.333%;
+  padding: 0 1rem;
+}
+
+.sponsorLogo {
+  height: 150px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.sponsorLogo:hover {
+  transform: scale(1.05);
+}
+
+.logoText {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--dark-gray);
+}
+
+.sponsorName {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--dark-gray);
+  font-weight: 600;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gray);
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.indicator:hover {
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background: var(--red);
+  width: 30px;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .sponsorSlide {
+    min-width: 100%;
+  }
+}
