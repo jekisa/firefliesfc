@@ -1,5 +1,6 @@
 'use client';
 // ==================== /pages/sponsors.js ====================
+import Image from 'next/image';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { sponsors } from '../../data/teamData';
@@ -82,15 +83,24 @@ export default function Sponsors() {
                                     </div>
                                 </div>
                                 <div className={styles.sponsorLogo}
-                                    style={{ background: `linear-gradient(${135 + idx * 30}deg, rgba(0, 61, 165, 0.1) ${idx * 10}%, rgba(246, 166, 0, 0.1) 100%)` }}>
-                                    <div className={styles.logoWrapper}>
-                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                            <path d="M2 17l10 5 10-5" />
-                                            <path d="M2 12l10 5 10-5" />
-                                        </svg>
-                                        <span className={styles.logoText}>{sponsor.name.substring(0, 2).toUpperCase()}</span>
-                                    </div>
+                                    style={!sponsor.logo ? { background: `linear-gradient(${135 + idx * 30}deg, rgba(0, 61, 165, 0.1) ${idx * 10}%, rgba(246, 166, 0, 0.1) 100%)` } : {}}>
+                                    {sponsor.logo ? (
+                                        <Image
+                                            src={sponsor.logo}
+                                            alt={sponsor.name}
+                                            fill
+                                            style={{ objectFit: 'contain', padding: '1rem' }}
+                                        />
+                                    ) : (
+                                        <div className={styles.logoWrapper}>
+                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                                <path d="M2 17l10 5 10-5" />
+                                                <path d="M2 12l10 5 10-5" />
+                                            </svg>
+                                            <span className={styles.logoText}>{sponsor.name.substring(0, 2).toUpperCase()}</span>
+                                        </div>
+                                    )}
                                 </div>
                                 <h3 className={styles.sponsorName}>{sponsor.name}</h3>
                                 <div className={styles.sponsorCategory}>

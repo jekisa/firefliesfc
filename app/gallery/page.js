@@ -1,6 +1,7 @@
 'use client';
 // ==================== /pages/gallery.js ====================
 import { useState } from 'react';
+import Image from 'next/image';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { gallery } from '../../data/teamData';
@@ -8,6 +9,19 @@ import styles from '../../styles/Gallery.module.css';
 
 export default function Gallery() {
     const [activeTab, setActiveTab] = useState('photos');
+
+    // Convert YouTube watch URL to embed URL
+    const getEmbedUrl = (url) => {
+        if (url.includes('youtube.com/watch?v=')) {
+            const videoId = url.split('v=')[1].split('&')[0];
+            return `https://www.youtube.com/embed/${videoId}`;
+        }
+        if (url.includes('youtu.be/')) {
+            const videoId = url.split('youtu.be/')[1].split('?')[0];
+            return `https://www.youtube.com/embed/${videoId}`;
+        }
+        return url;
+    };
 
     return (
         <>
@@ -89,16 +103,14 @@ export default function Gallery() {
                     {activeTab === 'photos' && (
                         <div className={styles.photosGrid}>
                             {gallery.photos.map((photo, idx) => (
-                                <div key={idx} className={styles.photoCard}
-                                    style={{ background: `linear-gradient(${135 + idx * 30}deg, rgba(0, 61, 165, 0.8) ${idx * 10}%, rgba(246, 166, 0, 0.8) 100%)` }}>
+                                <div key={idx} className={styles.photoCard}>
+                                    <Image
+                                        src={photo}
+                                        alt={`Gallery photo ${idx + 1}`}
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
                                     <div className={styles.photoOverlay}>
-                                        <div className={styles.photoIconWrapper}>
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                                                <circle cx="8.5" cy="8.5" r="1.5" />
-                                                <polyline points="21 15 16 10 5 21" />
-                                            </svg>
-                                        </div>
                                         <p className={styles.photoCaption}>Match Moment #{idx + 1}</p>
                                         <div className={styles.photoActions}>
                                             <button className={styles.actionButton}>
@@ -129,7 +141,7 @@ export default function Gallery() {
                                         <iframe
                                             width="100%"
                                             height="100%"
-                                            src={video}
+                                            src={getEmbedUrl(video)}
                                             title={`Video ${idx + 1}`}
                                             frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

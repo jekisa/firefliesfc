@@ -232,7 +232,6 @@
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(2px);
   transition: all 0.4s ease;
   gap: 1rem;
   padding: 2rem;
@@ -240,7 +239,6 @@
 
 .photoCard:hover .photoOverlay {
   background: rgba(0, 61, 165, 0.75);
-  backdrop-filter: blur(8px);
 }
 
 .photoIconWrapper {

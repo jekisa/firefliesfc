@@ -1,5 +1,6 @@
 'use client';
 // /components/PlayerCard.js
+import Image from 'next/image';
 import styles from '../styles/PlayerCard.module.css';
 
 export default function PlayerCard({ player }) {
@@ -61,13 +62,22 @@ export default function PlayerCard({ player }) {
             </div>
 
             <div className={styles.playerImage}
-                style={{ background: `linear-gradient(${135 + player.number * 5}deg, rgba(0, 61, 165, 0.8) ${player.number * 2}%, rgba(246, 166, 0, 0.8) 100%)` }}>
-                <div className={styles.imageOverlay}>
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </div>
+                style={!player.image ? { background: `linear-gradient(${135 + player.number * 5}deg, rgba(0, 61, 165, 0.8) ${player.number * 2}%, rgba(246, 166, 0, 0.8) 100%)` } : {}}>
+                {player.image ? (
+                    <Image
+                        src={player.image}
+                        alt={player.name}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                    />
+                ) : (
+                    <div className={styles.imageOverlay}>
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                )}
             </div>
 
             <div className={styles.playerInfo}>
