@@ -298,6 +298,10 @@
     transform: scale(1.05);
   }
 
+  .logoHidden {
+    display: none;
+  }
+
   .logoImage {
     height: 50px;
   }

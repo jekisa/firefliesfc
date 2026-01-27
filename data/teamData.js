@@ -91,8 +91,10 @@ export const players = [
 ];
 
 export const sponsors = [
-    { id: 1, name: "balladabola", logo: "/images/sponsors/balladabola.png" },
-    
+    { id: 1, name: "balladabola", logo: "/images/sponsors/balladabola2.png" },
+    { id: 2, name: "adidas", logo: "/images/sponsors/adidas.jpg" },
+    { id: 3, name: "nike", logo: "/images/sponsors/nike.png" },
+    { id: 4, name: "puma", logo: "/images/sponsors/puma1.png" }
     // { id: 1, name: "balladabola", logo: "/images/sponsors/balladabola.png" },
     // { id: 2, name: "Toko Olahraga Prima", logo: "/images/sponsors/sponsor2.png" },
     // { id: 3, name: "Bengkel Motor Sentosa", logo: "/images/sponsors/sponsor3.png" },

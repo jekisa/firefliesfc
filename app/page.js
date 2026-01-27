@@ -279,54 +279,42 @@ export default function Home() {
             <div className={styles.partnersCarousel}>
               <div className={styles.partnersTrack}>
                 <div className={styles.partnerCard}>
-                  <img src="/images/sponsors/balladabola.png" alt="Balladabola" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/balladabola2.png" alt="Balladabola" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/adidas.png" alt="Adidas" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/adidas.jpg" alt="Adidas" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/puma.png" alt="Puma" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/puma1.png" alt="Puma" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/under-armour.png" alt="Under Armour" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/newbalance.png" alt="New Balance" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/new-balance.png" alt="New Balance" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/nike.png" alt="Nike" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/mizuno.png" alt="Mizuno" className={styles.partnerLogo} />
-                </div>
-                <div className={styles.partnerCard}>
-                  <img src="/images/partners/umbro.png" alt="Umbro" className={styles.partnerLogo} />
-                </div>
-                <div className={styles.partnerCard}>
-                  <img src="/images/partners/kappa.png" alt="Kappa" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/umbro.jpg" alt="Umbro" className={styles.partnerLogo} />
                 </div>
 
                 {/* Duplicate for seamless loop */}
                 <div className={styles.partnerCard}>
-                  <img src="/images/sponsors/balladabola.png" alt="Balladabola" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/balladabola2.png" alt="Balladabola" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/adidas.png" alt="Adidas" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/adidas.jpg" alt="Adidas" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/puma.png" alt="Puma" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/puma1.png" alt="Puma" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/under-armour.png" alt="Under Armour" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/newbalance.png" alt="New Balance" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/new-balance.png" alt="New Balance" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/nike.png" alt="Nike" className={styles.partnerLogo} />
                 </div>
                 <div className={styles.partnerCard}>
-                  <img src="/images/partners/mizuno.png" alt="Mizuno" className={styles.partnerLogo} />
-                </div>
-                <div className={styles.partnerCard}>
-                  <img src="/images/partners/umbro.png" alt="Umbro" className={styles.partnerLogo} />
-                </div>
-                <div className={styles.partnerCard}>
-                  <img src="/images/partners/kappa.png" alt="Kappa" className={styles.partnerLogo} />
+                  <img src="/images/sponsors/umbro.jpg" alt="Umbro" className={styles.partnerLogo} />
                 </div>
               </div>
             </div>

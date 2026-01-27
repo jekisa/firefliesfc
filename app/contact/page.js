@@ -168,7 +168,7 @@ export default function Contact() {
                                 </div>
                                 <div className={styles.infoContent}>
                                     <h3>Training Location</h3>
-                                    <p>Senayan Field<br />Central Jakarta, DKI Jakarta</p>
+                                    <p>2Go Center Mini Soccer<br />West Jakarta, DKI Jakarta</p>
                                 </div>
                             </div>
 
@@ -193,7 +193,7 @@ export default function Contact() {
                                 </div>
                                 <div className={styles.infoContent}>
                                     <h3>Phone</h3>
-                                    <p>+62 812-3456-7890</p>
+                                    <p>+62 821-1100-6258</p>
                                 </div>
                             </div>
 
@@ -246,24 +246,39 @@ export default function Contact() {
                             </svg>
                             <h2 className={styles.sectionTitle}>Our Location</h2>
                         </div>
-                        <div className={styles.map}
-                            style={{ background: 'linear-gradient(135deg, rgba(0, 61, 165, 0.8) 0%, rgba(246, 166, 0, 0.8) 100%)' }}>
-                            <div className={styles.mapPlaceholder}>
-                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <div className={styles.map}>
+                            <iframe
+                                src="https://maps.google.com/maps?q=2GO+Center+Mini+Soccer,+Jakarta+Barat,+Indonesia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="2GO Center Mini Soccer Location"
+                            ></iframe>
+                        </div>
+                        <div className={styles.mapInfo}>
+                            <div className={styles.mapDetails}>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                     <circle cx="12" cy="10" r="3" />
                                 </svg>
-                                <p className={styles.mapTitle}>Senayan Field</p>
-                                <p className={styles.mapSubtext}>Central Jakarta, DKI Jakarta</p>
-                                <button className={styles.mapButton}>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                        <polyline points="15 3 21 3 21 9" />
-                                        <line x1="10" y1="14" x2="21" y2="3" />
-                                    </svg>
-                                    <span>Open in Maps</span>
-                                </button>
+                                <span>2GO Center Mini Soccer, Jakarta Barat</span>
                             </div>
+                            <a
+                                href="https://maps.google.com/maps/search/2GO+Center+Mini+Soccer+Jakarta+Barat"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.mapButton}
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                                <span>Open in Google Maps</span>
+                            </a>
                         </div>
                     </div>
                 </div>

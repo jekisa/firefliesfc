@@ -1499,9 +1499,7 @@
   }
 
   .matchCarousel {
-    width: 100%;
-    max-width: 380px;
-    height: 450px;
+    display: none;
   }
 
   .heroTitle {
