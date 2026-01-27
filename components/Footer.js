@@ -125,11 +125,6 @@ export default function Footer() {
                     <p className={styles.copyright}>
                         &copy; {currentYear} Fireflies FC. All rights reserved.
                     </p>
-                    <div className={styles.footerMeta}>
-                        <Link href="/privacy" className={styles.metaLink}>Privacy Policy</Link>
-                        <span className={styles.metaDivider}>•</span>
-                        <Link href="/terms" className={styles.metaLink}>Terms of Service</Link>
-                    </div>
                 </div>
             </div>
         </footer>

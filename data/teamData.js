@@ -67,9 +67,9 @@ export const matches = [
 export const players = [
     { id: 1, name: "Esa Nugroho", position: "GK", number: 1, status: "active", image: "/images/gallery/players/esa.jpg" },
     { id: 19, name: "Yohanes Desianto", position: "RB", number: 19, status: "active", image: "/images/gallery/players/yohan.jpg" },
-    { id: 8, name: "Giian Franco", position: "ST", number: 8, status: "active", image: "/images/gallery/players/franco.jpg" },
+    { id: 8, name: "Giian Franco", position: "ST", number: 8, status: "active", image: "/images/gallery/players/franco.JPG" },
     { id: 12, name: "Wahid", position: "CM", number: 12, status: "active", image: "/images/gallery/players/wahid.jpg" },
-    { id: 4, name: "Noval", position: "CB", number: 4, status: "active", image: "/images/gallery/players/Noval.jpg" },
+    { id: 4, name: "Noval", position: "CB", number: 4, status: "active", image: "/images/gallery/players/noval.JPG" },
     { id: 5, name: "Udin", position: "CB", number: 5, status: "injured", image: "/images/gallery/players/udin.jpg" },
     
     // { id: 3, name: "Rizki Ramadhan", position: "CB", number: 5, status: "active" },
@@ -105,9 +105,9 @@ export const sponsors = [
 
 export const gallery = {
     photos: [
-        "/images/gallery/photo1.jpg",
-        "/images/gallery/photo2.jpg",
-        "/images/gallery/photo3.jpg",
+        "/images/gallery/photo1.JPG",
+        "/images/gallery/photo2.JPG",
+        "/images/gallery/photo3.JPG",
         "/images/gallery/photo4.jpg",
         "/images/gallery/photo5.jpg",
         "/images/gallery/photo6.jpg"

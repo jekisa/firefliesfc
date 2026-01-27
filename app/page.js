@@ -412,7 +412,7 @@ export default function Home() {
 
               <div className={styles.featureCard}>
                 <div className={styles.featureCardImage}>
-                  <img src="/images/gallery/skills-card.jpg" alt="Skill Development" />
+                  <img src="/images/gallery/skills-card.JPG" alt="Skill Development" />
                   <div className={styles.featureCardOverlay}>
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -511,7 +511,7 @@ export default function Home() {
 
               <div className={styles.featureCard}>
                 <div className={styles.featureCardImage}>
-                  <img src="/images/gallery/skills-level-card.jpg" alt="All Skill Levels" />
+                  <img src="/images/gallery/skills-level-card.JPG" alt="All Skill Levels" />
                   <div className={styles.featureCardOverlay}>
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M12 2v20M2 12h20" />
