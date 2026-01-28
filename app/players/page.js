@@ -1,12 +1,22 @@
 'use client';
 // ==================== /pages/players.js ====================
+import { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import PlayerCard from '../../components/PlayerCard';
-import { players } from '../../data/teamData';
+import { players as initialPlayers } from '../../data/teamData';
 import styles from '../../styles/Players.module.css';
 
 export default function Players() {
+    const [players, setPlayers] = useState(initialPlayers);
+
+    useEffect(() => {
+        const stored = localStorage.getItem('dashboardPlayers');
+        if (stored) {
+            setPlayers(JSON.parse(stored));
+        }
+    }, []);
+
     const activePlayers = players.filter(p => p.status === 'active');
     const injuredPlayers = players.filter(p => p.status === 'injured');
 

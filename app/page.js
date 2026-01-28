@@ -3,11 +3,20 @@ import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import BePartOfUsModal from '../components/BePartOfUsModal';
-import { matches } from '../data/teamData';
+import { matches as initialMatches } from '../data/teamData';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 
 export default function Home() {
+  const [matches, setMatches] = useState(initialMatches);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('dashboardMatches');
+    if (stored) {
+      setMatches(JSON.parse(stored));
+    }
+  }, []);
+
   const nextMatch = matches.find(m => m.status === 'upcoming');
 
   // Modal State
@@ -148,6 +157,54 @@ export default function Home() {
             {/* Match Schedule Carousel */}
             <div className={styles.matchCarousel}>
               <div className={styles.carouselTrack}>
+                {/* Player Of The Week Card */}
+                <div className={styles.potwCard}>
+                  <div className={styles.potwHeader}>
+                    <span className={styles.potwBadge}>⭐ Player of the Week</span>
+                  </div>
+                  <div className={styles.potwImage}>
+                    <img src="/images/POTW.jpeg" alt="Player of the Week" />
+                  </div>
+                  <div className={styles.potwInfo}>
+                    <div className={styles.potwName}>Rendi</div>
+                    <div className={styles.potwPosition}>Striker</div>
+                    <div className={styles.potwStats}>
+                      <div className={styles.potwStat}>
+                        <span className={styles.potwStatValue}>2</span>
+                        <span className={styles.potwStatLabel}>Games</span>
+                      </div>
+                      <div className={styles.potwStat}>
+                        <span className={styles.potwStatValue}>2</span>
+                        <span className={styles.potwStatLabel}>Goals</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Goal Keeper Of The Week Card */}
+                <div className={styles.gkotwCard}>
+                  <div className={styles.gkotwHeader}>
+                    <span className={styles.gkotwBadge}>🧤 GK of the Week</span>
+                  </div>
+                  <div className={styles.gkotwImage}>
+                    <img src="/images/GKOTW.jpeg" alt="Goal Keeper of the Week" />
+                  </div>
+                  <div className={styles.gkotwInfo}>
+                    <div className={styles.gkotwName}>Roborovski</div>
+                    <div className={styles.gkotwPosition}>Goalkeeper</div>
+                    <div className={styles.gkotwStats}>
+                      <div className={styles.gkotwStat}>
+                        <span className={styles.gkotwStatValue}>2</span>
+                        <span className={styles.gkotwStatLabel}>Games</span>
+                      </div>
+                      <div className={styles.gkotwStat}>
+                        <span className={styles.gkotwStatValue}>10</span>
+                        <span className={styles.gkotwStatLabel}>Saves</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Match Card 1 */}
                 <div className={styles.matchCard}>
                   <div className={styles.matchCardHeader}>
@@ -209,6 +266,52 @@ export default function Home() {
                 </div>
 
                 {/* Duplicate cards for seamless loop */}
+                <div className={styles.potwCard}>
+                  <div className={styles.potwHeader}>
+                    <span className={styles.potwBadge}>⭐ Player of the Week</span>
+                  </div>
+                  <div className={styles.potwImage}>
+                    <img src="/images/POTW.jpeg" alt="Player of the Week" />
+                  </div>
+                  <div className={styles.potwInfo}>
+                    <div className={styles.potwName}>Rendi</div>
+                    <div className={styles.potwPosition}>Striker</div>
+                    <div className={styles.potwStats}>
+                      <div className={styles.potwStat}>
+                        <span className={styles.potwStatValue}>2</span>
+                        <span className={styles.potwStatLabel}>Games</span>
+                      </div>
+                      <div className={styles.potwStat}>
+                        <span className={styles.potwStatValue}>2</span>
+                        <span className={styles.potwStatLabel}>Goals</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.gkotwCard}>
+                  <div className={styles.gkotwHeader}>
+                    <span className={styles.gkotwBadge}>🧤 GK of the Week</span>
+                  </div>
+                  <div className={styles.gkotwImage}>
+                    <img src="/images/GKOTW.jpeg" alt="Goal Keeper of the Week" />
+                  </div>
+                  <div className={styles.gkotwInfo}>
+                    <div className={styles.gkotwName}>Roborovski</div>
+                    <div className={styles.gkotwPosition}>Goalkeeper</div>
+                    <div className={styles.gkotwStats}>
+                      <div className={styles.gkotwStat}>
+                        <span className={styles.gkotwStatValue}>2</span>
+                        <span className={styles.gkotwStatLabel}>Games</span>
+                      </div>
+                      <div className={styles.gkotwStat}>
+                        <span className={styles.gkotwStatValue}>10</span>
+                        <span className={styles.gkotwStatLabel}>Saves</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div className={styles.matchCard}>
                   <div className={styles.matchCardHeader}>
                     <span className={styles.matchBadge}>This Week</span>

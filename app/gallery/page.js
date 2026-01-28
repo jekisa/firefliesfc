@@ -1,14 +1,22 @@
 'use client';
 // ==================== /pages/gallery.js ====================
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { gallery } from '../../data/teamData';
+import { gallery as initialGallery } from '../../data/teamData';
 import styles from '../../styles/Gallery.module.css';
 
 export default function Gallery() {
     const [activeTab, setActiveTab] = useState('photos');
+    const [gallery, setGallery] = useState(initialGallery);
+
+    useEffect(() => {
+        const stored = localStorage.getItem('dashboardGallery');
+        if (stored) {
+            setGallery(JSON.parse(stored));
+        }
+    }, []);
 
     // Convert YouTube watch URL to embed URL
     const getEmbedUrl = (url) => {

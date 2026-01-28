@@ -1,14 +1,22 @@
 'use client';
 // ==================== /pages/matches.js ====================
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import MatchCard from '../../components/MatchCard';
-import { matches } from '../../data/teamData';
+import { matches as initialMatches } from '../../data/teamData';
 import styles from '../../styles/Matches.module.css';
 
 export default function Matches() {
     const [filter, setFilter] = useState('all');
+    const [matches, setMatches] = useState(initialMatches);
+
+    useEffect(() => {
+        const stored = localStorage.getItem('dashboardMatches');
+        if (stored) {
+            setMatches(JSON.parse(stored));
+        }
+    }, []);
 
     const filteredMatches = matches.filter(match =>
         filter === 'all' ? true : match.type === filter

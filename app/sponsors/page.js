@@ -1,12 +1,22 @@
 'use client';
 // ==================== /pages/sponsors.js ====================
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { sponsors } from '../../data/teamData';
+import { sponsors as initialSponsors } from '../../data/teamData';
 import styles from '../../styles/Sponsors.module.css';
 
 export default function Sponsors() {
+    const [sponsors, setSponsors] = useState(initialSponsors);
+
+    useEffect(() => {
+        const stored = localStorage.getItem('dashboardSponsors');
+        if (stored) {
+            setSponsors(JSON.parse(stored));
+        }
+    }, []);
+
     return (
         <>
             <Navbar />

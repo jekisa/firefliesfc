@@ -1,10 +1,22 @@
+'use client';
 // /components/Footer.js
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { socialMedia } from '../data/teamData';
+import { socialMedia as initialSocialMedia } from '../data/teamData';
 import styles from '../styles/Footer.module.css';
+import WhatsAppChat from './WhatsAppChat';
+import ScrollArrows from './ScrollArrows';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const [socialMedia, setSocialMedia] = useState(initialSocialMedia);
+
+    useEffect(() => {
+        const stored = localStorage.getItem('dashboardContacts');
+        if (stored) {
+            setSocialMedia(JSON.parse(stored));
+        }
+    }, []);
 
     return (
         <footer className={styles.footer}>
@@ -127,6 +139,8 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
+            <WhatsAppChat />
+            <ScrollArrows />
         </footer>
     );
 }
